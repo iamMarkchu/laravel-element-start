@@ -10,17 +10,17 @@
 <script>
     import { fetchList } from '../../api/users'
     import CkTablePage from "../../components/CkTablePage"
-    const colConfigs = [
-        ['id', 'ID'],
-        ['name', '名字'],
-        ['email', '电子邮箱'],
-    ]
     export default {
         name: "user-index",
         created() {
-            this.colData = colConfigs.map((value) => {
-                return { prop: value[0], label: value[1] }
-            })
+            this.colData = [
+                { prop: 'id', label: 'ID' },
+                { prop: 'name', label: '姓名' },
+                { prop: 'email', label: '电子邮箱' },
+                { prop: 'created_at', label: '创建时间' },
+                { prop: 'updated_at', label: '更新时间' },
+                { slot: 'operation' }
+            ]
         },
         data() {
             return {

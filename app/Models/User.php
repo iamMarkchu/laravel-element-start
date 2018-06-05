@@ -27,4 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function fetchList($map=[], $pageSize=30)
+    {
+        return $this->where($map)->paginate($pageSize);
+    }
 }
